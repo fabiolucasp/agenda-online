@@ -1,0 +1,69 @@
+* {
+  -webkit-transition-property: all;
+  -webkit-transition-duration: .2s;
+  -moz-transition-timing-function: cubic-bezier(100, 50, 21, 6);
+  -moz-transition-property: all;
+  -moz-transition-timing-function: cubic-bezier(100, 50, 21, 6);
+}
+
+iframe {
+  background: rgba(0, 0, 0, 0.5);
+  height: 84vh;
+}
+
+body {
+  background: url(../imagens/a.jpg);
+  padding: 0px;
+  font-family: 'Oswald', sans-serif;
+  background-size: 1327px;
+}
+
+.menu ul li {
+  color: rgb(241, 4, 4);
+  background: rgba(0, 0, 0, 0.5);
+  width: 150px;
+  float: left;
+  height: 40px;
+  text-decoration: none;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: inline-block;
+  text-align: center;
+  line-height: 25px;
+  position: relative;
+
+}
+
+.menu ul li:hover {
+  border: none;
+  background: rgba(0, 0, 0, 0.4);
+  background: #fff;
+  color: #1b1b1b;
+}
+
+.menu ul {
+  padding: 0px;
+}
+
+.menu ul ul {
+  display: none;
+  margin-left: -20px;
+  margin-top: -5px;
+
+}
+
+.menu ul li:hover>ul {
+  display: block;
+
+}
+
+.menu ul ul ul {
+  margin-left: 130px;
+  top: 5px;
+  position: absolute;
+}
+
+.dadosUsuario {
+  color: white;
+
+}

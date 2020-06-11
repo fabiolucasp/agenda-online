@@ -1,0 +1,126 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="author" content="Fábio Lucas, Luiz Eduardo, Clóvis de Alencar e Jonston Barreira" />
+  <meta name="generator" content="Feito através do Visual Studio Code" />
+  <meta name="description"
+    content="Esse é um protótipo de um sistema de Agenda Online com o CRUD feito através do JavaScript, PHP e HTML5." />
+  <meta name="application-name" content="Agenda Online" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Agenda Online</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- ARQUIVOS CSS VIEW -->
+  <link href="css/style.css" rel="stylesheet">
+
+</head>
+
+<body style="background: rgba(255, 255, 255, 0.5);">
+
+  <!-- INÍCIO DADOS DO USUÁRIO -->
+
+  <div id="main" class="container-fluid">
+    <h3 class="page-header">Visualizar Usuário</h3>
+
+    <div class="row">
+      <div class="col-md-4">
+        <p><strong>Tipo de Usuário:</strong></p>
+        <p id="tipouser">Administrador</p>
+      </div>
+
+      <div class="col-md-4">
+        <p><strong>Nome:</strong></p>
+        <p id="nome" class="nome">Clovis de Alencar</p>
+      </div>
+
+      <div class="col-md-4">
+        <p><strong>CPF:</strong></p>
+        <p id="cpf">123.456.789-0</p>
+      </div>
+
+      <div class="col-md-4">
+        <p><strong>RG:</strong></p>
+        <p id="rg">1234567</p>
+      </div>
+
+      <div class="col-md-4">
+        <p><strong>Nascimento:</strong></p>
+        <p id="datanascimento">00/00/0000</p>
+      </div>
+
+      <div class="col-md-4">
+        <p><strong>Email:</strong></p>
+        <p id="email">esivolc@gmail.com</p>
+      </div>
+
+      <div class="col-md-4">
+        <p><strong>Telefone:</strong></p>
+        <p id="telefone">(62)98485-6951</p>
+      </div>
+
+    </div>
+
+    <!-- FIM DADOS DO USUÁRIO -->
+
+
+
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <!-- INÍCIO DO SCRIPT PARA PEGAR E LISTAR OS DADOS DO USUÁRIO A SER VISUALIZADO -->
+
+    <script>
+      $.ajax({
+        type: 'GET',
+        dataType: 'json',
+        url: 'php/visualizar.json',
+        success: function (data) {
+          CarregarUsuario(data);
+        }
+      });
+
+      function CarregarUsuario(id) {
+
+        $.ajax({
+            method: "POST",
+            url: "php/CarregarUsuario.php",
+            data: {
+              id: id
+            }
+          })
+          .done(function (data) {
+            const result = JSON.parse(data);
+
+            $('#nome').text(result.nome);
+            $('#datanascimento').text(result.datanascimento);
+            $('#rg').text(result.rg);
+            $('#cpf').text(result.cpf);
+            $('#email').text(result.email);
+            $('#telefone').text(result.telefone);
+            $('#tipouser').text(result.tipouser);
+
+
+          })
+          .fail(function (jqXHR, textStatus, msg) {
+            console.log(msg);
+          });
+
+      }
+    </script>
+
+    <!-- FIM DO SCRIPT PARA PEGAR E LISTAR OS DADOS DO USUÁRIO A SER VISUALIZADO -->
+
+
+</body>
+
+</html>

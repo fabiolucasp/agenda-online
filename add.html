@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="Fábio Lucas, Luiz Eduardo, Clóvis de Alencar e Jonston Barreira" />
+    <meta name="generator" content="Feito através do Visual Studio Code" />
+    <meta name="description"
+        content="Esse é um protótipo de um sistema de Agenda Online com o CRUD feito através do JavaScript, PHP e HTML5." />
+    <meta name="application-name" content="Agenda Online" />
+    <title>Agenda Online</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- ARQUIVOS CSS ADD -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body style="background: rgba(255, 255, 255, 0.5);">
+
+    <!-- INÍCIO FORMULÁRIO INSERIR DADOS -->
+
+    <div id=" main" class="container-fluid">
+
+        <h3 class="page-header">Dados Pessoais</h3>
+
+        <form action="">
+            <div class="row">
+                <div class="form-group col-md-4">
+                    <label for="nome">Nome: </label>
+                    <input type="text" class="form-control" id="nome" placeholder="Digite o nome">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="sobrenome">Sobrenome: </label>
+                    <input type="text" class="form-control" id="sobrenome" placeholder="Digite o sobrenome">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="datanascimento">Data de nascimento: </label>
+                    <input type="number" class="form-control" id="datanascimento" placeholder="00/00/0000">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-md-3">
+                    <label for="rg">RG: </label>
+                    <input type="number" class="form-control" id="rg" maxlength="7" placeholder="Digite o RG">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="cpf">CPF: </label>
+                    <input type="number" class="form-control" id="cpf" maxlength="11" placeholder="Digite o CPF">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="email">Email: </label>
+                    <input type="text" class="form-control" id="email" placeholder="Digite o email">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="telefone">Telefone: </label>
+                    <input type="number" class="form-control" id="telefone" maxlength="11" placeholder="(62)98485-6951">
+                </div>
+            </div>
+
+            <h3 class="page-header">Dados de Endereço</h3>
+
+            <div class="row">
+                <div class="form-group col-md-3">
+                    <label for="rua">Rua/Avenida: </label>
+                    <input type="text" class="form-control" id="rua" placeholder="Digite o nome da rua">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="bairro">Bairro: </label>
+                    <input type="text" class="form-control" id="bairro" placeholder="Digite o bairro">
+
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="cidade">Cidade: </label>
+                    <input type="text" class="form-control" id="cidade" placeholder="Digite a cidade">
+
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="estado">Estado: </label>
+                    <input type="text" class="form-control" id="estado" placeholder="Digite o estado">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-md-3">
+                    <label for="quadra">Quadra: </label>
+                    <input type="text" class="form-control" id="quadra" placeholder="Digite o nome da rua">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="lote">Lote: </label>
+                    <input type="text" class="form-control" id="lote" placeholder="Digite o bairro">
+
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="numero">Número: </label>
+                    <input type="number" class="form-control" id="numero" placeholder="Digite o número">
+
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="complemento">Complemento: </label>
+                    <input type="text" class="form-control" id="complemento" placeholder="Digite o complemento">
+                </div>
+            </div>
+
+            <hr>
+
+            <h3 class="page-header">Dados de Login</h3>
+
+            <div class="row">
+                <div class="form-group col-md-4">
+                    <label for="senha">Senha: </label>
+                    <input type="number" class="form-control" id="senha" placeholder="Digite o senha">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="csenha">Confirmar senha: </label>
+                    <input type="number" class="form-control" id="csenha" placeholder="Confirme a senha digitada">
+
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="usuario">Tipos de usuário: </label>
+                    <br>
+                    <select name="usuario">
+                        <option value="paciente">Paciente</option>
+                        <option value="medico">Médico(a)</option>
+                        <option value="secretario">Secretário(a)</option>
+                        <option value="enfermeiro">Enfermeiro(a)</option>
+                        <option value="administrador">Administrador(a)</option>
+                    </select>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <button id="salvar" href="../inicio.html" type="submit" class="btn btn-primary">Salvar</button>
+                    <a id="cancelar" href="../inicio.html" class="btn btn-default">Cancelar</a>
+                </div>
+            </div>
+
+            <br>
+            <br>
+
+        </form>
+    </div>
+
+    <!-- FIM FORMULÁRIO INSERIR DADOS -->
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <script>
+        $('#cancelar').click(function () {
+
+        });
+    </script>
+
+    <!-- INÍCIO DO SCRIPT PARA SALVAR O USUÁRIO -->
+
+    <script>
+        $('#salvar').click(function () {
+
+            var nome = $('#nome').val();
+            var sobrenome = $('#sobrenome').val();
+            var datanascimento = $('#datanascimento').val();
+            var rg = $('#rg').val();
+            var cpf = $('#cpf').val();
+            var email = $('#email').val();
+            var telefone = $('#telefone').val();
+            var rua = $('#rua').val();
+            var bairro = $('#bairro').val();
+            var cidade = $('#cidade').val();
+            var estado = $('#estado').val();
+            var quadra = $('#quadra').val();
+            var lote = $('#lote').val();
+            var numero = $('#numero').val();
+            var complemento = $('#complemento').val();
+            var senha = $('#senha').val();
+            var csenha = $('#csenha').val();
+            var tipouser = $('#tipouser').val();
+
+            $.ajax({
+
+                    method: "POST",
+                    url: "RegistrarUsuario.php",
+                    data: {
+                        nome: email,
+                        sobrenome: senha,
+                        datanascimento: datanascimento,
+                        rg: rg,
+                        cpf: cpf,
+                        email: email,
+                        telefone: telefone,
+                        rua: rua,
+                        bairro: bairro,
+                        cidade: cidade,
+                        estado: estado,
+                        quadra: quadra,
+                        lote: lote,
+                        numero: numero,
+                        complemento: complemento,
+                        senha: senha,
+                        csenha: csenha,
+                        tipouser: "tipouser"
+                    }
+                })
+                .done(function (data) {
+
+                    console.log(data);
+
+                    const result = JSON.parse(data);
+
+                    console.log(result);
+
+                    if (result.error) {
+
+                        alert(result.message);
+
+                    } else {
+                        window.open("menu.php", "_self");
+
+                        alert(result.message);
+
+                    }
+
+
+                })
+                .fail(function (jqXHR, textStatus, msg) {
+                    console.log(msg);
+                });
+
+        })
+    </script>
+
+    <!-- INÍCIO DO SCRIPT PARA SALVAR O USUÁRIO -->
+
+
+</body>
+
+</html>

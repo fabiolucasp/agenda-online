@@ -1,0 +1,212 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="author" content="Fábio Lucas, Luiz Eduardo, Clóvis de Alencar e Jonston Barreira" />
+	<meta name="generator" content="Feito através do Visual Studio Code" />
+	<meta name="description"
+		content="Esse é um protótipo de um sistema de Agenda Online com o CRUD feito através do JavaScript, PHP e HTML5." />
+	<meta name="application-name" content="Agenda Online" />
+	<title>Agenda Online</title>
+
+
+	<!-- Bootstrap CSS -->
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<!-- ARQUIVOS CSS INICIO -->
+	<link href="css/style.css" rel="stylesheet">
+</head>
+
+<body style="background: rgba(255, 255, 255, 0.5);">
+
+
+	<!-- INÍCIO - CONTAINER 1 - USUÁRIOS - BARRA DE PESQUISA - BOTÃO NOVO USUÁRIO -->
+	<div id="main" class="container-fluid" style="margin-top: 50px">
+
+		<!-- INÍCIO - USUÁRIOS - BARRA DE PESQUISA - BOTÃO NOVO USUÁRIO -->
+
+		<div id="top" class="row">
+			<div class="col-sm-3">
+				<h2>Usuários</h2>
+			</div>
+			<div class="col-sm-6">
+
+				<div class="input-group h2">
+					<input name="data[search]" class="form-control" id="search" type="text"
+						placeholder="Pesquisar Usuários">
+					<span class="input-group-btn">
+						<button class="btn btn-primary" type="submit">
+							<span class="glyphicon glyphicon-search"></span>
+						</button>
+					</span>
+				</div>
+
+			</div>
+			<div class="col-sm-3">
+				<a href="add.html" class="btn btn-primary pull-right h2">Novo Usuário</a>
+			</div>
+		</div>
+
+		<!-- FIM - USUÁRIOS - BARRA DE PESQUISA - BOTÃO NOVO USUÁRIO -->
+
+
+		<hr />
+
+		<!-- ÍNÍCIO - LISTAR USUÁRIOS -->
+		<div id="list" class="row">
+
+			<div class="table-responsive col-md-12">
+				<table class="table table-striped" cellspacing="0" cellpadding="0">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>Tipo de usuário</th>
+							<th>Nome</th>
+							<th>Sobrenome</th>
+							<th>CPF</th>
+							<th>Telefone</th>
+							<th>email</th>
+							<th class="actions">Ações</th>
+						</tr>
+					</thead>
+					<tbody id="tabela">
+
+						<tr>
+							<td>1001</td>
+							<td>Administrador</td>
+							<td>Clovis de Alencar</td>
+							<td>Mota Filho</td>
+							<td>000000000 06</td>
+							<td>62 998663058</td>
+							<td>ccc@email.com</td>
+							<td class="actions">
+								<a class="btn btn-success btn-xs" href="view.html">Visualizar</a>
+								<a class="btn btn-warning btn-xs editar" href="php/edit.php">Editar</a>
+								<a class="btn btn-danger btn-xs" href="#" data-toggle="modal"
+									data-target="#delete-modal">Excluir</a>
+							</td>
+						</tr>
+
+
+
+					</tbody>
+				</table>
+			</div>
+
+		</div>
+		<!-- FIM - LISTAR USUÁRIOS -->
+
+
+	</div>
+
+	<!-- FIM CONTAINER 1 -->
+
+	<!-- SCRIPTS JQUERY E BOOTSTRAP -->
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+
+	<!-- INÍCIO SCRIPT LISTAR USUÁRIOS -->
+
+	<script>
+		CarregarUsuarios();
+
+		function CarregarUsuarios() {
+			$.ajax({
+				url: "php/ListarUsuarios.php",
+				method: "GET",
+				success: function (data) {
+					$('#tabela').html(data);
+				}
+			});
+		}
+	</script>
+
+	<!-- FIM SCRIPT LISTAR USUÁRIOS -->
+
+	<!-- INÍCIO SCRIPT ABRIR TELA DE VISUALIZAR USUÁRIOS -->
+
+	<script>
+		$(document).on('click', '.visualizar', function () {
+
+			var id = $(this).attr('id');
+
+			$.ajax({
+				url: "php/visualizar.php",
+				method: "POST",
+				data: {
+					id: id
+				},
+				success: function (data) {
+
+					window.open("view.html", "_self");
+
+					alert(result.message);
+
+
+				}
+			});
+		});
+	</script>
+
+	<!-- FIM SCRIPT ABRIR TELA DE VISUALIZAR USUÁRIOS -->
+
+	<!-- INÍCIO SCRIPT ABRIR TELA DE EDITAR USUÁRIOS -->
+
+	<script>
+		$(document).on('click', '.editar', function () {
+
+			var id = $(this).attr('id');
+
+			$.ajax({
+				url: "php/alterar.php",
+				method: "POST",
+				data: {
+					id: id
+				},
+				success: function (data) {
+
+					window.open("edit.html", "_self");
+
+					alert(result.message);
+
+
+				}
+			});
+		});
+	</script>
+	<!-- FIM SCRIPT ABRIR TELA DE EDITAR USUÁRIOS -->
+
+	<!-- INÍCIO SCRIPT ABRIR TELA DE DELETAR USUÁRIOS -->
+
+	<script>
+		$(document).on('click', '.deletar', function () {
+
+			var id = $(this).attr('id');
+
+			$.ajax({
+				url: "php/deletar.php",
+				method: "POST",
+				data: {
+					id: id
+				},
+				success: function (data) {
+
+					alert("Usuário deletado.");
+
+					CarregarUsuarios();
+
+
+				}
+			});
+		});
+	</script>
+	<!-- FIM SCRIPT ABRIR TELA DE DELETAR USUÁRIOS -->
+
+
+</body>
+
+</html>

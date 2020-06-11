@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="Fábio Lucas, Luiz Eduardo, Clóvis de Alencar e Jonston Barreira" />
+    <meta name="generator" content="Feito através do Visual Studio Code" />
+    <meta name="description"
+        content="Esse é um protótipo de um sistema de Agenda Online com o CRUD feito através do JavaScript, PHP e HTML5." />
+    <meta name="application-name" content="Agenda Online" />
+    <title>Agenda Online</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- ARQUIVOS CSS ADD -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- Scripts jQuery -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+</head>
+
+<body style="background: rgba(255, 255, 255, 0.5);">
+
+    <!-- INÍCIO FORMULÁRIO INSERIR DADOS -->
+
+    <div id="main" class="container-fluid">
+
+        <h3 class="page-header">Editar Dados Pessoais</h3>
+
+        <form method="post" id="formularioAlterar">
+            <div class="row">
+                <div class="form-group col-md-4">
+                    <label for="nome">Nome: </label>
+                    <input type="text" class="form-control" id="nome" placeholder="Digite o nome">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="sobrenome">Sobrenome: </label>
+                    <input type="text" class="form-control" id="sobrenome" placeholder="Digite o sobrenome">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="datanascimento">Data de nascimento: </label>
+                    <input type="text" class="form-control" id="datanascimento" placeholder="00/00/0000">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-md-3">
+                    <label for="rg">RG: </label>
+                    <input type="text" class="form-control" id="rg" maxlength="7" placeholder="Digite o RG">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="cpf">CPF: </label>
+                    <input type="text" class="form-control" id="cpf" maxlength="11" placeholder="Digite o CPF">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="email">Email: </label>
+                    <input type="email" class="form-control" id="email" placeholder="Digite o email">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="telefone">Telefone: </label>
+                    <input type="phone" class="form-control" id="telefone" maxlength="11" placeholder="(62)98485-6951">
+                </div>
+            </div>
+
+            <h3 class="page-header">Editar Dados de Endereço</h3>
+
+            <div class="row">
+                <div class="form-group col-md-3">
+                    <label for="rua">Rua/Avenida: </label>
+                    <input type="rua" class="form-control" id="rua" placeholder="Digite o nome da rua">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="bairro">Bairro: </label>
+                    <input type="bairro" class="form-control" id="bairro" placeholder="Digite o bairro">
+
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="cidade">Cidade: </label>
+                    <input type="cidade" class="form-control" id="cidade" placeholder="Digite a cidade">
+
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="estado">Estado: </label>
+                    <input type="estado" class="form-control" id="estado" placeholder="Digite o estado">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-md-3">
+                    <label for="quadra">Quadra: </label>
+                    <input type="quadra" class="form-control" id="quadra" placeholder="Digite o nome da rua">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="lote">Lote: </label>
+                    <input type="lote" class="form-control" id="lote" placeholder="Digite o bairro">
+
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="numero">Número: </label>
+                    <input type="numero" class="form-control" id="numero" placeholder="Digite o número">
+
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="complemento">Complemento: </label>
+                    <input type="complemento" class="form-control" id="complemento" placeholder="Digite o complemento">
+                </div>
+            </div>
+
+            <hr>
+
+            <h3 class="page-header">Editar Ddos de Login</h3>
+
+            <div class="row">
+                <div class="form-group col-md-4">
+                    <label for="rua">Senha: </label>
+                    <input type="text" class="form-control" id="senha" placeholder="Digite a senha">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="bairro">Confirmar senha: </label>
+                    <input type="text" class="form-control" id="csenha" placeholder="Confirme a senha digitada">
+
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="usuario">Tipos de usuário: </label>
+                    <br>
+                    <select name="usuario">
+                        <option value="paciente">Paciente</option>
+                        <option value="medico">Médico(a)</option>
+                        <option value="secretario">Secretário(a)</option>
+                        <option value="enfermeiro">Enfermeiro(a)</option>
+                        <option value="administrador">Administrador(a)</option>
+                    </select>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <button id="salvar" type="submit" class="btn btn-primary">Salvar</button>
+                    <a class="btn btn-default">Cancelar</a>
+                </div>
+            </div>
+
+            <br>
+            <br>
+
+        </form>
+    </div>
+    <!-- FIM FORMULÁRIO INSERIR DADOS -->
+
+    <!-- INÍCIO SCRIPT INSERIR DADOS USUÁRIO -->
+
+    <script>
+        $('#formularioAlterar').on('submit', function (event) {
+            event.preventDefault();
+            var erro_nome = '';
+            var erro_sobrenome = '';
+            if ($('#nome').val() == '') {
+                erro_nome = 'É obrigatório digitar o nome.';
+                $('#erro_nome').text(erro_nome);
+                $('#nome').css('border-color', '#cc0000');
+            } else {
+                erro_nome = '';
+                $('#erro_nome').text(erro_nome);
+                $('#nome').css('border-color', '');
+            }
+            if ($('#sobrenome').val() == '') {
+                erro_sobrenome = 'É obrigatório digitar o sobre nome.';
+                $('#erro_sobrenome').text(erro_sobrenome);
+                $('#sobrenome').css('border-color', '#cc0000');
+            } else {
+                erro_sobrenome = '';
+                $('#erro_sobrenome').text(erro_sobrenome);
+                $('#sobrenome').css('border-color', '');
+            }
+
+            if (erro_nome != '' || erro_sobrenome != '') {
+                return false;
+            } else {
+
+
+                $.ajax({
+                    type: 'GET',
+                    dataType: 'json',
+                    url: 'alterar.json',
+                    success: function (data) {
+                        AlterarUsuario(data);
+                    }
+                });
+
+
+            }
+
+        });
+
+        function AlterarUsuario(id) {
+            var nome = $('#nome').val();
+            var sobrenome = $('#sobrenome').val();
+            var datanascimento = $('#datanascimento').val();
+            var rg = $('#rg').val();
+            var cpf = $('#cpf').val();
+            var email = $('#email').val();
+            var telefone = $('#telefone').val();
+            var rua = $('#rua').val();
+            var bairro = $('#bairro').val();
+            var cidade = $('#cidade').val();
+            var estado = $('#estado').val();
+            var quadra = $('#quadra').val();
+            var lote = $('#lote').val();
+            var numero = $('#numero').val();
+            var complemento = $('#complemento').val();
+            var senha = $('#senha').val();
+            var csenha = $('#csenha').val();
+            var tipouser = $('#tipouser').val();
+
+            $.ajax({
+
+                    method: "POST",
+                    url: "php/AlterarUsuario.php",
+                    data: {
+                        id: id,
+                        nome: email,
+                        sobrenome: senha,
+                        datanascimento: datanascimento,
+                        rg: rg,
+                        cpf: cpf,
+                        email: email,
+                        telefone: telefone,
+                        rua: rua,
+                        bairro: bairro,
+                        cidade: cidade,
+                        estado: estado,
+                        quadra: quadra,
+                        lote: lote,
+                        numero: numero,
+                        complemento: complemento,
+                        senha: senha,
+                        csenha: csenha,
+                        tipouser: "tipouser"
+                    }
+                })
+                .done(function (data) {
+
+                    console.log(data);
+
+                    const result = JSON.parse(data);
+
+                    console.log(result);
+
+                    if (result.error) {
+
+                        alert(result.message);
+
+                    } else {
+                        window.open("menu.php", "_self");
+
+                        alert(result.message);
+
+                    }
+
+
+                })
+                .fail(function (jqXHR, textStatus, msg) {
+                    console.log(msg);
+                });
+        }
+    </script>
+
+    <!-- FIM SCRIPT INSERIR DADOS USUÁRIO -->
+
+    <!-- INÍCIO SCRIPT RECUPERAR DADOS USUÁRIO -->
+    <script>
+        $.ajax({
+            type: 'GET',
+            dataType: 'json',
+            url: 'alterar.json',
+            success: function (data) {
+                CarregarUsuario(data);
+            }
+        });
+
+        function CarregarUsuario(id) {
+            $.ajax({
+
+                    method: "POST",
+                    url: "php/CarregarUsuario.php",
+                    data: {
+                        id: id
+                    }
+                })
+                .done(function (data) {
+
+                    const result = JSON.parse(data);
+
+                    $('#nome').val(result.nome);
+                    $('#sobrenome').val(result.sobrenome);
+                    $('#datanascimento').val(result.datanascimento);
+                    $('#rg').val(result.rg);
+                    $('#cpf').val(result.cpf);
+                    $('#email').val(result.email);
+                    $('#telefone').val(result.telefone);
+                    $('#rua').val(result.rua);
+                    $('#bairro').val(result.bairro);
+                    $('#cidade').val(result.cidade);
+                    $('#estado').val(result.estado);
+                    $('#quadra').val(result.quadra);
+                    $('#lote').val(result.lote);
+                    $('#numero').val(result.numero);
+                    $('#complemento').val(result.complemento);
+                    $('#senha').val(result.senha);
+                    $('#csenha').val(result.csenha);
+                    $('#tipouser').val(result.tipouser);
+
+
+                })
+                .fail(function (jqXHR, textStatus, msg) {
+                    console.log(msg);
+                });
+
+        }
+    </script>
+    <!-- FIM SCRIPT RECUPERAR DADOS USUÁRIO -->
+
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>

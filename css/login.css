@@ -1,0 +1,101 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body:before {
+  content: "";
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-image: url(../imagens/e.gif);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  -webkit-background-size: cover;
+  background-size: cover;
+
+}
+
+.contact-form {
+  position: absolute;
+  top: 47%;
+  left: 50%;
+  width: 205px;
+  height: 150px;
+  padding: 100px 100px 200px;
+  border-radius: 10%;
+  background: rgba(215, 221, 228, 0.82);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.avatar {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0;
+  top: 12%;
+  left: 50%;
+  margin-right: -40%;
+  transform: translate(-50%, -50%)
+}
+
+.contact-form h2 {
+  margin: 0;
+  padding: 10px 10px 20px;
+  color: rgb(180, 3, 3);
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.contact-form p {
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+  color: rgb(180, 3, 3);
+}
+
+.contact-form input {
+  width: 100%;
+  height: 20px;
+  margin-bottom: 5px;
+
+}
+
+.contact-form input[type=email],
+.contact-form input[type=senha] {
+  border: none;
+  border-bottom: 1px solid transparent;
+  background: transparent;
+  outline: none;
+  color: transparent;
+  font-size: 15px;
+}
+
+.contact-form input[type=submit] {
+  height: 35px;
+  color: black;
+  font-size: 27px;
+  background: rgb(180, 3, 3);
+  cursor: pointer;
+  border-radius: 25px;
+  border: none;
+  outline: none;
+  margin-top: 0%;
+}
+
+.contact-form a {
+  color: rgb(180, 3, 3);
+  padding: 16%;
+}
+
+.esqueceusenha {
+  cursor: pointer;
+  text-align: center;
+}

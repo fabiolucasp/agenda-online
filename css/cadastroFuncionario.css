@@ -1,0 +1,32 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+form {
+  padding: 0px;
+  font-family: 'Oswald', sans-serif;
+  background-size: 1327px;
+}
+
+form label {
+  color: rgb(235, 223, 223);
+}
+
+form legend {
+  color: white;
+}
+
+form input {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: rgb(231, 8, 8);
+}
+
+form input:hover {
+  background-color: rgb(247, 245, 245);
+  color: rgb(231, 8, 8);
+}
